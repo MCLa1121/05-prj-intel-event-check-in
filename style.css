@@ -394,6 +394,56 @@ select {
   color: #475569;
 }
 
+/* Attendee list */
+.attendee-list-section {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px solid #f1f5f9;
+  text-align: left;
+}
+
+.attendee-list-section h3 {
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.attendee-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.attendee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.attendee-name {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.attendee-team {
+  font-size: 14px;
+  color: #64748b;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 6px 10px;
+  border: 1px solid #dbe4ee;
+}
+
+.attendee-list-empty {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .hero {
@@ -426,5 +476,11 @@ select {
 
   .teams-grid {
     grid-template-columns: 1fr;
+  }
+
+  .attendee-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
