@@ -9,6 +9,11 @@ const progressBar = document.getElementById("progressBar");
 //track attendance
 let count = 0;
 const maxCount = 50;
+const teamCounts = {
+  water: 0,
+  zero: 0,
+  power: 0,
+};
 
 //Handel form submission
 form.addEventListener("submit", function (event) {
@@ -19,6 +24,7 @@ form.addEventListener("submit", function (event) {
   const name = nameInput.value;
   const team = teamSelect.value;
   const teamName = teamSelect.selectedOptions[0].text;
+  const teamCounter = document.getElementById(team + "Count");
 
   console.log(name, team, teamName);
 
@@ -33,8 +39,8 @@ form.addEventListener("submit", function (event) {
   progressBar.style.width = procentage;
 
   //update the team counter
-  const teamCounter = document.getElementById(team + "Count");
-  teamCounter.textContent = parseInt(teamCounter.textContent) + 1;
+  teamCounts[team]++;
+  teamCounter.textContent = teamCounts[team];
 
   //show welcome message
   const message = `Welcome ${name}! You are checked in to ${teamName}.`;
