@@ -238,6 +238,12 @@ button .fas {
   transition: width 0.6s ease;
 }
 
+.progress-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #64748b;
+}
+
 /* Adjust spacing between components */
 .container {
   margin-top: 0;

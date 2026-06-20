@@ -5,6 +5,7 @@ const teamSelect = document.getElementById("teamSelect");
 const greeting = document.getElementById("greeting");
 const attendeeCount = document.getElementById("attendeeCount");
 const progressBar = document.getElementById("progressBar");
+const progressText = document.getElementById("progressText");
 
 //track attendance
 let count = 0;
@@ -36,7 +37,10 @@ form.addEventListener("submit", function (event) {
   //update progess bar
   const procentage = Math.round((count / maxCount) * 100) + "%";
   console.log(`Progress: ${procentage}`);
-  progressBar.style.width = procentage;
+  const progressValue = Math.min(Math.round((count / maxCount) * 100), 100);
+  progressBar.style.width = progressValue + "%";
+  progressBar.setAttribute("aria-valuenow", String(count));
+  progressText.textContent = `${count} of ${maxCount} attendees checked in`;
 
   //update the team counter
   teamCounts[team]++;
