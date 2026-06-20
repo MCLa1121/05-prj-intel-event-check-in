@@ -25,7 +25,8 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       135deg,
       rgba(0, 153, 219, 0.9) 0%,
       rgba(0, 104, 181, 0.9) 50%,
@@ -329,6 +330,25 @@ select {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.team-card-flash {
+  animation: teamFlash 0.6s ease;
+}
+
+@keyframes teamFlash {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 113, 197, 0.25);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 10px 24px rgba(0, 113, 197, 0.16);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
 }
 
 /* Team card colors */

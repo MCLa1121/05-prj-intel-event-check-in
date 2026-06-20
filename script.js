@@ -41,6 +41,10 @@ form.addEventListener("submit", function (event) {
   //update the team counter
   teamCounts[team]++;
   teamCounter.textContent = teamCounts[team];
+  const teamCard = teamCounter.parentElement;
+  teamCard.classList.remove("team-card-flash");
+  void teamCard.offsetWidth;
+  teamCard.classList.add("team-card-flash");
 
   //show welcome message
   const message = `Welcome ${name}! You are checked in to ${teamName}.`;
