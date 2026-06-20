@@ -16,6 +16,26 @@ const teamCounts = {
   power: 0,
 };
 
+const teamNames = {
+  water: "Team Water Wise",
+  zero: "Team Net Zero",
+  power: "Team Renewables",
+};
+
+function getWinningTeam() {
+  const teamKeys = Object.keys(teamCounts);
+  let winningTeam = teamKeys[0];
+
+  for (let i = 1; i < teamKeys.length; i++) {
+    const currentTeam = teamKeys[i];
+    if (teamCounts[currentTeam] > teamCounts[winningTeam]) {
+      winningTeam = currentTeam;
+    }
+  }
+
+  return winningTeam;
+}
+
 //Handel form submission
 form.addEventListener("submit", function (event) {
   //prevent the webpage to refresh
@@ -51,8 +71,16 @@ form.addEventListener("submit", function (event) {
   teamCard.classList.add("team-card-flash");
 
   //show welcome message
-  const message = `Welcome ${name}! You are checked in to ${teamName}.`;
-  greeting.textContent = message;
+  let message = `Welcome ${name}! You are checked in to ${teamName}.`;
+  greeting.className = "success-message";
+
+  if (count === maxCount) {
+    const winningTeam = getWinningTeam();
+    message = `Celebration! <strong>${teamNames[winningTeam]}</strong> wins the attendance goal!`;
+    greeting.className = "success-message celebration-message";
+  }
+
+  greeting.innerHTML = message;
   greeting.style.display = "block";
 
   form.reset();
